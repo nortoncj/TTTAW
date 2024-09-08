@@ -1,0 +1,267 @@
+body {
+  background-color: #171d22;
+  margin: 0;
+  overflow-x: 0;
+}
+nav {
+  background: radial-gradient(ellipse at center, #443501 0%, #000000 100%);
+  display: flex;
+  align-items: center;
+}
+nav .logo {
+  font-size: calc(3vw + 0.5rem);
+  font-weight: 400;
+}
+nav a {
+  text-transform: uppercase;
+  padding: 0 4rem;
+  text-decoration: none;
+  font-size: calc(1.5vw);
+  margin: 0;
+  background: linear-gradient(to bottom, #cfc09f 27%, #ffecb3 40%, #89754d 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+  font-weight: 300;
+}
+
+.gold-text {
+  background: linear-gradient(to bottom, #cfc09f 27%, #ffecb3 40%, #3a2c0f 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  position: relative;
+}
+
+.main-content {
+  font-family: "Poppin", sans-serif;
+  /* background-color: dimgray; */
+  background: rgb(40, 45, 45);
+  background: radial-gradient(
+    circle,
+    rgba(40, 45, 45, 1) 0%,
+    rgba(255, 236, 179, 1) 50%,
+    rgba(23, 29, 34, 1) 100%
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 30px;
+}
+
+.book {
+  margin: 5rem 0 0 10rem;
+  width: 700px;
+  height: 900px;
+  position: relative;
+  transition-duration: 1s;
+  perspective: 1500;
+}
+input {
+  display: none;
+}
+.cover,
+.back-cover {
+  background-color: aliceblue;
+  width: 100%;
+  height: 100%;
+  border-radius: 0 15px 15px 0;
+  box-shadow: 0 0 5px rgb(41, 41, 41);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 1s;
+}
+.cover {
+  background-image: url("../img/OIG4.jpg");
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  z-index: 5;
+  transform-origin: center left;
+}
+.cover label {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-left: 30%;
+  font-size: 58px;
+  display: none;
+}
+.back-cover {
+  position: relative;
+  z-index: -1;
+}
+.page {
+  position: absolute;
+  background-color: white;
+  width: 700px;
+  height: 860px;
+  border-radius: 0 15px 15px 0;
+  margin-top: 10px;
+  transform-origin: left;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition-duration: 1.5s;
+}
+.wide-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  width: 20%;
+}
+.page img,
+.cover img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px 0 0 15px;
+}
+.page .wide-panel {
+  width: 100%;
+  height: 40%;
+  border-radius: 15px 0 0 15px;
+}
+
+.front-page {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+.back-page {
+  transform: rotateY(-180deg);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  box-sizing: border-box;
+  z-index: 99;
+}
+.next,
+.prev {
+  position: absolute;
+  bottom: 1em;
+  cursor: pointer;
+}
+.next {
+  right: 1em;
+}
+.prev {
+  left: 1em;
+}
+
+#page1 {
+  z-index: 4;
+}
+#page2 {
+  z-index: 3;
+}
+#page3 {
+  z-index: 2;
+}
+#page4 {
+  z-index: 1;
+}
+
+#checkbox-cover:checked ~ .book {
+  transform: translateX(200px);
+}
+
+#checkbox-cover:checked ~ .book .cover {
+  background-image: none;
+  transition: transform 1.5s, z-index 0.5s 0.5s;
+  transform: rotateY(-180deg);
+  z-index: 1;
+}
+
+#checkbox-cover:checked ~ .book .page {
+  box-shadow: 0 0 3px rgb(98, 98, 98);
+}
+
+#checkbox-page1:checked ~ .book #page1 {
+  transform: rotateY(-180deg);
+  z-index: 2;
+}
+#checkbox-page2:checked ~ .book #page2 {
+  transform: rotateY(-180deg);
+  z-index: 3;
+}
+
+#checkbox-page3:checked ~ .book #page3 {
+  transform: rotateY(-180deg);
+  z-index: 4;
+}
+
+.footer {
+  background: #000;
+  padding: 30px 0px;
+  font-family: "Play", sans-serif;
+  text-align: center;
+}
+
+.footer .row{
+    width:100%;
+    margin:1% 0%;
+    padding:0.6% 0%;
+    color:gray;
+    font-size:0.8em;
+    }
+    
+    .footer .row a{
+    text-decoration:none;
+    color:gray;
+    transition:0.5s;
+    }
+
+    .footer .row li a{
+        background: linear-gradient(to bottom, #cfc09f 27%, #ffecb3 40%, #89754d 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+    }
+ 
+
+    
+    .footer .row a:hover{
+    color:#fff;
+    }
+
+    .footer .row ul{
+        width:100%;
+        }
+        
+        .footer .row ul li{
+        display:inline-block;
+        margin:0px 30px;
+        }
+        
+        .footer .row a {
+        font-size:2em;
+        margin:0% 1%;
+        }
+        
+        @media (max-width:720px){
+        .footer{
+        text-align:left;
+        padding:5%;
+        }
+        .footer .row ul li{
+        display:block;
+        margin:10px 0px;
+        text-align:left;
+        }
+        .footer .row a {
+        margin:0% 3%;
+        }
+        }
